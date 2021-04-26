@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class TicTack {
 
+	static String lastPlayed; 
+	static final int HEAD = 1, TAIL = 0;
 	static char playerSymbol, computerSymbol;
 	static Scanner sc = new Scanner(System.in);
 
@@ -156,6 +158,19 @@ public class TicTack {
 		}	
 	}
 
+	// toss to who plays first
+	public static void toss(char[] board) {
+		int toss = (int) (Math.random() * 2 % 2);
+		if (toss == HEAD) {
+			System.out.println("Player Wins the Toss.");
+			lastPlayed = "Player";
+			movePlayer(board);						
+		}else {
+			System.out.println("Computer Wins the Toss.");
+			lastPlayed = "Computer";
+
+		}
+	}
 
 	public static void main(String[] args) {
 
@@ -164,6 +179,7 @@ public class TicTack {
 		displayBoard(board);
 		chooseLocatin(board);
 		movePlayer(board);
+		toss(board);
 	}
 }
 
