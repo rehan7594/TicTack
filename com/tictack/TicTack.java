@@ -50,13 +50,26 @@ public class TicTack {
 	}
 
 
+	/* UC3 -- Display the Board */
+	public static void displayBoard(char[] board) {
+		System.out.println("\n\t " + board[1] + " | " + board[2] + " | " + board[3] + "\n\t-----------");
+		System.out.println("\t " + board[4] + " | " + board[5] + " | " + board[6] + "\n\t-----------");
+		System.out.println("\t " + board[7] + " | " + board[8] + " | " + board[9] + "\n\t");
+	}
+
+	private static boolean isEmpty(char[] board) {
+		for(char cell: board) {
+			if(cell == ' ')
+				return true;
+		}
+		return false;
+	}
+
 	public static void main(String[] args) {
 
 		char[] board = createEmptyBoard();
 		playerSymbol = chooseXorO();
-
+		displayBoard(board);
 	}
-
 }
-
 
