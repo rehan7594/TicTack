@@ -139,15 +139,34 @@ public class TicTack {
 	}
 
 
+	//to take player move
+	public static void movePlayer(char[] board) {
+		System.out.print("Enter the index you want to move to: ");
+		int index = sc.nextInt();
+		while (index < 0 || index > 8) {
+			System.out.print("Wrong Input. Try Again : ");
+			index = sc.nextInt();
+		}
+		if (board[index] == ' ') {
+			board[index] = playerSymbol;
+			displayBoard(board);
+		} else {
+			System.out.println("Index not available. Choose another");
+			movePlayer(board);
+		}	
+	}
+
+
 	public static void main(String[] args) {
 
 		char[] board = createEmptyBoard();
 		playerSymbol = chooseXorO();
 		displayBoard(board);
 		chooseLocatin(board);
+		movePlayer(board);
 	}
-
-
-
 }
+
+
+
 
